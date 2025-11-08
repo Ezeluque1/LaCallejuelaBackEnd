@@ -10,7 +10,7 @@ dotenv.config()
 const app = express()
 
 app.use(cors({
-    origin: "http://localhost:3000", // tu frontend
+    origin: true, // tu frontend
     methods: ["GET", "POST", "PUT","PATCH", "DELETE", "OPTIONS"],
     credentials: true // si vas a usar cookies o tokens en headers
 }));
