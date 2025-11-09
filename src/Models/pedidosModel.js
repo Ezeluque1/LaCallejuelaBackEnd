@@ -14,7 +14,18 @@ export async function getPedidos(){
             detalle:true,
             tipoEntrega:true,
             precioTotal:true,
-            productos:true
+            productos:{
+                select:{
+                    cantidad:true,
+                    precioTotal:true,
+                    producto:{
+                        select:{
+                            nombre:true,
+                            precioUnitario:true
+                        }
+                    }
+                }
+            }
         }
     })
 }
