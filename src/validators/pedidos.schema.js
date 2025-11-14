@@ -9,7 +9,7 @@ export const createPedidoSchema = z.object({
     nombreCliente: z.string().min(3,"El nombre debe contener al menos 3 caracteres").max(254,"El nombre debe contener un maximo de 254 caracteres"),
     horarioEntrega: z.string().optional(),
     metodoPago: z.string().min(3,"El metodo de pago debe contener al menos 3 caracteres").max(15,"El metodo de pago debe contener como maximo 15 caracteres"),
-    detalle: z.string().min(3,"El detalle debe contener como minimo 3 caracteres").max(254,"El detalle debe contener como maximo 254 caracteres").optional(),
+    detalle: z.string().optional().min(3,"El detalle debe contener como minimo 3 caracteres").max(254,"El detalle debe contener como maximo 254 caracteres"),
     tipoEntrega: z.string().min(3,"El tipo de entrega debe contener al menos 3 caracteres").max(254,"El tipo de entrega debe contener como maximo 254 caracteres"),
 })
 
@@ -17,7 +17,7 @@ export const modificarPedidoSchema = z.object({
     nombreCliente: z.string().min(3,"El nombre debe contener al menos 3 caracteres").max(254,"El nombre debe contener un maximo de 254 caracteres"),
     horarioEntrega: z.string().datetime().optional(),
     metodoPago: z.enum(["EFECTIVO","TRANSFERENCIA"]),
-    detalle: z.string().min(3,"El detalle debe contener como minimo 3 caracteres").max(254,"El detalle debe contener como maximo 254 caracteres").optional(),
+    detalle: z.string().optional().min(3,"El detalle debe contener como minimo 3 caracteres").max(254,"El detalle debe contener como maximo 254 caracteres"),
     tipoEntrega: z.enum(["RETIRO_LOCAL","DELIVERY"]),
     estado: z.enum(["PREPARANDO","LLEVANDO","ENTREGADO"]),
     productos: z.array(productosSchema).optional()
