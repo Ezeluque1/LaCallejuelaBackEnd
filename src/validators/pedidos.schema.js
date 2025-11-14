@@ -20,7 +20,7 @@ export const modificarPedidoSchema = z.object({
     detalle: z.string().min(3,"El detalle debe contener como minimo 3 caracteres").max(254,"El detalle debe contener como maximo 254 caracteres").optional(),
     tipoEntrega: z.enum(["RETIRO_LOCAL","DELIVERY"]),
     estado: z.enum(["PREPARANDO","LLEVANDO","ENTREGADO"]),
-    productos: z.array(productosSchema).min(1)
+    productos: z.array(productosSchema).optional()
 })
 
 export const idSchema = z.number("La id debe ser un numero").int("La id debe ser un numero entero")
