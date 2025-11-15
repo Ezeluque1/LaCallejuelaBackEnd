@@ -1,12 +1,9 @@
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient({
-      datasources: {
+  datasources: {
     db: {
-      url: process.env.DATABASE_URL,
-      ssl: {
-        rejectUnauthorized: false, // Permite certificados no verificados
-      },
+      url: process.env.DATABASE_URL, // solo la URL como string aquí
     },
   },
 })
